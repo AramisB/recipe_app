@@ -1,0 +1,57 @@
+/* body.css */
+
+/* Reset default margin and padding */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure full viewport height */
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif; /* Example font */
+}
+
+/* Container for background image */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Ensure the background image covers the entire viewport */
+.background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Container for main content */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Takes up remaining vertical space */
+}
+
+/* Main content section */
+main {
+  flex: 1; /* Takes up remaining space */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  padding: 20px;
+}
+
+/* Footer styles */
+footer {
+  background-color: #333; /* Example background color */
+  color: #fff; /* Example text color */
+  padding: 10px;
+  text-align: center;
+}
