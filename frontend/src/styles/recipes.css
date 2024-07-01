@@ -96,34 +96,39 @@
 
 .recipe h2 {
   margin-top: 0;
-  text-align: center; /* Center the heading */
-  color: #fff; /* Ensure text color contrasts with background */
+  text-align: center; 
+  color: #fff; 
   position: relative;
-  z-index: 1; /* Place text above the overlay */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  z-index: 1; 
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
 }
 
 .recipe p, .recipe ul, .recipe ol {
   position: relative;
-  z-index: 1; /* Place text above the overlay */
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  padding: 10px; /* Add padding for better readability */
+  z-index: 1; 
+  background: rgba(0, 0, 0, 0.5); 
+  padding: 10px;
   border-radius: 5px;
-  color: #fff; /* Change text color */
-  margin: 0; /* Remove default margin */
+  color: #fff; 
+  margin: 0; 
 }
 
 input[type="text"] {
-  padding: 10px 15px; /* Add some padding inside the input */
-  border: 1px solid #ccc; /* Light gray border */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Outside shadow */
-  font-size: 16px; /* Adjust the font size */
-  width: 100%; /* Make the input full-width */
-  max-width: 400px; /* Optional: limit the maximum width */
-  margin: 0 auto; /* Center the input */
-  display: block; /* Ensure the input is a block element */
-  background-color: #fff; /* Background color */
+  padding: 10px 15px;
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  font-size: 16px;
+  width: 100%;
+  max-width: 400px; 
+  margin: 0 auto; 
+  display: block; 
+  background-color: #fff; 
+  position: fixed;
+  top: 100px; /* Distance from the top of the viewport */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center the input */
+  z-index: 1000;
 }
 
 input[type="text"]::placeholder {

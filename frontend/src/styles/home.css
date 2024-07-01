@@ -1,29 +1,186 @@
+html {
+  scroll-behavior: smooth;
+  height: 100%; /* Ensure the body height is 100% */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
 .home-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 100px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure the container covers the viewport height */
+  background: linear-gradient(13deg, rgba(139, 90, 117, 0.85), rgba(90, 189, 182, 0.85)), url('../images/food.jpg'); /* Slightly translucent */
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  text-align: center;
+  color: white;
+  padding: 40px;
+  position: relative; /* Positioned for overlap */
+}
+
+.hero-content {
+  background: rgba(0, 0, 0, 0.7); /* Reduced translucency */
+  padding: 50px;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 6px 6px rgba(255, 255, 255, 0.2); /* Enhanced shadow */
+  position: relative;
+  z-index: 1; /* Ensure it appears above the background */
+  transform: translateY(-20px); /* Overlapping effect */
+  animation: fadeInUp 1s ease-out; /* Animation */
+}
+
+.home-container h1 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  color: #ffd700; /* Gold color for the text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Added shadow */
+}
+
+.home-container p {
+  font-size: 1.3em;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition for hover effect */
+}
+
+.cta-button:hover {
+  background-color: #c0392b; /* Darker background color on hover */
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.testimonials-section {
+  padding: 60px 20px;
+  background-color: #9e7171; /* Light background for contrast */
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Added shadow */
+  margin: 20px auto; /* Added margin */
+  width: 90%;
+  max-width: 900px;
+  position: relative; /* Relative positioning for the testimonials */
+  overflow: hidden; /* Hide overflow */
+  height: 450px; /* Larger height for the section */
+}
+
+.testimonials-section h2 {
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  color: #2c3e50;
+  animation: fadeIn 1s ease-out;
+  position: relative;
+  z-index: 2; /* Ensure the heading is above the testimonials */
+}
+
+.testimonials-container {
+  position: relative;
+  height: 100%; /* Full height of the section */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial {
+  background: #71b31a; /* Light background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for floating effect */
+  position: absolute; /* Positioning for zigzag */
+  width: 300px; /* Fixed width for the testimonials */
+  z-index: 1; /* Ensure the testimonial appears above the section */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Added transition for hover effect */
+  animation: fadeInUp 1.2s ease-out;
+}
+
+/* Testimonial specific colors */
+.testimonial:nth-child(1) {
+  background: #f0f0f0; /* Slightly darker */
+  top: 10%; /* Position from the top */
+  left: 0; /* Align to the left */
+  transform: translateY(0); /* No translation */
+}
+
+.testimonial:nth-child(2) {
+  background: #f7f7f7; /* Slightly lighter */
+  top: 35%; /* Move down from the top */
+  right: 0; /* Align to the right */
+  transform: translateY(-50%); /* Adjust vertical position */
+}
+
+.testimonial:nth-child(3) {
+  background: #f0f0f0; /* Slightly darker */
+  top: 60%; /* Move down from the top */
+  left: 0; /* Align to the left */
+  transform: translateY(-100%); /* Adjust vertical position */
+}
+
+.testimonial:nth-child(4) {
+  background: #f7f7f7; /* Slightly lighter */
+  top: 85%; /* Move down from the top */
+  right: 0; /* Align to the right */
+  transform: translateY(-150%); /* Adjust vertical position */
+}
+
+.testimonial:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  background-color: #eaeaea; /* Light background on hover */
+}
+
+.testimonial p {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  color: #34495e;
+}
+
+/* Animation for fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  .home-container h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    color: #2c3e50;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .home-container p {
-    font-size: 1.1em;
-    color: #34495e;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  .home-container img {
-    display: block;
-    max-width: 100%;
-    height: auto; 
-    margin-top: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 250px;
-    width: 600px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    margin-bottom: 20px;
+  }
+}

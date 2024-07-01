@@ -1,8 +1,12 @@
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/header.css';
 import logo from '../images/logo.png';
+import { AuthContext } from '../pages/AuthContext';
 
-function Header() {
+function Header({ openSignInModal, openSignUpModal }) {
+  const { user, logout } = useContext(AuthContext);
+
   return (
     <header className="header">
       <div className="header__logo">
@@ -27,11 +31,22 @@ function Header() {
       </nav>
 
       <div className="header__auth">
-        <a href="/">Sign In</a>
-        <span> | </span>
-        <a href="/">Login</a>
+        {user ? (
+          <>
+            <Link to="/profile" className="auth-link">Profile</Link>
+            <span> | </span>
+            <button onClick={logout} className="auth-link">Logout</button>
+          </>
+        ) : (
+          <>
+            <button onClick={openSignInModal} className="auth-link">Sign In</button>
+            <span> | </span>
+            <button onClick={openSignUpModal} className="auth-link">Sign Up</button>
+          </>
+        )}
       </div>
     </header>
   );
 }
+
 export default Header;

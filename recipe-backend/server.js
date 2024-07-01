@@ -1,14 +1,31 @@
+const fs = require('fs');
+const path = require('path');
 const express = require('express');
-const connectDB = require('./db');
+const cors = require('cors');
 const { ObjectId } = require('mongodb');
+const connectDB = require('./db');
+const authRoutes = require('./routes/auth');
 require('dotenv').config(); // Load environment variables from .env file
 
 const app = express();
 app.use(express.json());
+
+// Ensure that the uploads directory exists
+const uploadsDir = path.join(__dirname, 'public', 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
+
 const port = process.env.PORT || 3000; // Set default port to 3000
 
-const cors = require('cors');
-app.use(cors());
+// CORS configuration
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+
+// Mount authentication routes
+app.use('/api/auth', authRoutes);
 
 let db;
 
