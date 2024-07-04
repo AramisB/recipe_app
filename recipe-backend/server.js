@@ -15,11 +15,11 @@ if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 8080; // Set default port to 8080 for deployment
 
 // CORS configuration
 app.use(cors({
-  origin: 'https://seal-app-jx46s.ondigitalocean.app/',
+  origin: 'https://seal-app-jx46s.ondigitalocean.app',
   credentials: true
 }));
 
