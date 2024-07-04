@@ -1,22 +1,21 @@
 const { MongoClient } = require('mongodb');
-require('dotenv').config(); // Load environment variables from .env file
+require('dotenv').config();
 
-const uri = process.env.MONGO_URI;
-
-if (!uri) {
-  throw new Error("MONGO_URI environment variable is not defined");
-}
-
-const client = new MongoClient(uri); // No need for useNewUrlParser and useUnifiedTopology
+const uri = process.env.MONGODB_URI;
 
 async function connectDB() {
+  const client = new MongoClient(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+
   try {
     await client.connect();
-    console.log("Connected successfully to MongoDB");
-    return client.db(); // Return the database instance
+    console.log('Connected to MongoDB');
+    return client.db('mydatabase');
   } catch (err) {
-    console.error("Database connection failed:", err);
-    throw err; // Rethrow the error to be handled by the caller
+    console.error('Failed to connect to MongoDB', err);
+    throw err;
   }
 }
 
