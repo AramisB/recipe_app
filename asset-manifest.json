@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/AramisB/recipe_app.git/static/css/main.97cf12fc.css",
+    "main.js": "/AramisB/recipe_app.git/static/js/main.6d5b0886.js",
+    "static/js/453.679e8433.chunk.js": "/AramisB/recipe_app.git/static/js/453.679e8433.chunk.js",
+    "static/media/logo.png": "/AramisB/recipe_app.git/static/media/logo.ffecff36a2da7b116b87.png",
+    "static/media/nyamachoma.jpg": "/AramisB/recipe_app.git/static/media/nyamachoma.cdbee309cd05d6da6ac9.jpg",
+    "static/media/bean-stew.jpg": "/AramisB/recipe_app.git/static/media/bean-stew.c73addf77cd2cb803529.jpg",
+    "static/media/body.png": "/AramisB/recipe_app.git/static/media/body.ea07564523c6894bd7cc.png",
+    "static/media/beef-stew.jpg": "/AramisB/recipe_app.git/static/media/beef-stew.ce208726eda0dcf8eaea.jpg",
+    "static/media/variety.jpg": "/AramisB/recipe_app.git/static/media/variety.411b8ffd5cbdb1a318d6.jpg",
+    "static/media/about.jpg": "/AramisB/recipe_app.git/static/media/about.7660fc8b1179b76bc3b2.jpg",
+    "static/media/matoke.jpg": "/AramisB/recipe_app.git/static/media/matoke.adf96b88aedfa3738191.jpg",
+    "static/media/chapati.webp": "/AramisB/recipe_app.git/static/media/chapati.52783b8017f27836d872.webp",
+    "static/media/omena.jpg": "/AramisB/recipe_app.git/static/media/omena.6d46d4bd24be51018646.jpg",
+    "static/media/samosa.jpg": "/AramisB/recipe_app.git/static/media/samosa.e65bafe9b7c5881c7725.jpg",
+    "static/media/mandazi.jpg": "/AramisB/recipe_app.git/static/media/mandazi.8fdd4ed6fb7dd0072e68.jpg",
+    "static/media/githeri.jpg": "/AramisB/recipe_app.git/static/media/githeri.3f8a590acc2781bbbf1d.jpg",
+    "static/media/kachumbari.jpg": "/AramisB/recipe_app.git/static/media/kachumbari.417669a26ed33f81f458.jpg",
+    "static/media/pattern-bkg.avif": "/AramisB/recipe_app.git/static/media/pattern-bkg.5d1dc47bdf1823071009.avif",
+    "index.html": "/AramisB/recipe_app.git/index.html",
+    "main.97cf12fc.css.map": "/AramisB/recipe_app.git/static/css/main.97cf12fc.css.map",
+    "main.6d5b0886.js.map": "/AramisB/recipe_app.git/static/js/main.6d5b0886.js.map",
+    "453.679e8433.chunk.js.map": "/AramisB/recipe_app.git/static/js/453.679e8433.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97cf12fc.css",
+    "static/js/main.6d5b0886.js"
+  ]
+}
