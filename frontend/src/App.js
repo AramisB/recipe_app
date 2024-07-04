@@ -5,8 +5,8 @@ import About from './pages/About';
 import Recipes from './pages/Recipes';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
-import ProfilePage from './pages/Profile';  // Ensure correct import path
-import SignInSignUpModal from './components/SignInSignUpModal'; 
+import ProfilePage from './pages/Profile';
+import SignInSignUpModal from './components/SignInSignUpModal';
 import { AuthProvider } from './pages/AuthContext';
 
 function App() {
@@ -26,18 +26,22 @@ function App() {
       });
   }, []);
 
+  const openSignInModal = () => {
+    setInitialFormType('signIn');
+    setIsModalOpen(true);
+  };
+
+  const openSignUpModal = () => {
+    setInitialFormType('signUp');
+    setIsModalOpen(true);
+  };
+
   return (
     <Router>
       <AuthProvider>
         <Header 
-          openSignInModal={() => {
-            setInitialFormType('signIn');
-            setIsModalOpen(true);
-          }}
-          openSignUpModal={() => {
-            setInitialFormType('signUp');
-            setIsModalOpen(true);
-          }}
+          openSignInModal={openSignInModal}
+          openSignUpModal={openSignUpModal}
         />
         <Routes>
           <Route path="/" element={<Home />} />

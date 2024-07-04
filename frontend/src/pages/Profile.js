@@ -21,7 +21,7 @@ const ProfilePage = () => {
       alert(err.message);
     }
   };
-  
+
   return (
     <div className="profile-page">
       <h1>User Profile</h1>
@@ -39,6 +39,7 @@ const ProfilePage = () => {
             type="number"
             value={age}
             onChange={(e) => setAge(e.target.value)}
+            required
           />
         </div>
         <div className="form-group">
@@ -47,6 +48,7 @@ const ProfilePage = () => {
             type="text"
             value={sex}
             onChange={(e) => setSex(e.target.value)}
+            required
           />
         </div>
         <div className="form-group">
@@ -54,6 +56,7 @@ const ProfilePage = () => {
           <input
             type="file"
             onChange={handleProfilePicChange}
+            required
           />
         </div>
         <button type="submit" className="update-button">Update Profile</button>

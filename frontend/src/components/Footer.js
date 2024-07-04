@@ -7,9 +7,9 @@ function Footer() {
         <div className="footer-section">
           <h4>Contact Info</h4>
           <ul>
-            <li>Email: contact@example.com</li>
-            <li>Phone: (123) 456-7890</li>
-            <li>Address: 123 Main St, Anytown, USA</li>
+            <li>Email: chemuB@hotmail.com</li>
+            <li>Phone: +254703251256</li>
+            <li>Address: Tom Mboya Rd, ALX Hub, Nairobi</li>
           </ul>
         </div>
         
@@ -32,7 +32,7 @@ function Footer() {
       </div>
       
       <div className="footer-bottom">
-        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        <p>&copy; 2024 My Recipe App. All rights reserved.</p>
       </div>
     </footer>
   );

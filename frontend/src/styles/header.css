@@ -23,13 +23,13 @@
   z-index: -1; /* Places the overlay behind the content */
 }
 
-.header__logo {
-  flex: 0 0 auto;
+.logo-container {
+  flex: 1, 1;
 }
 
-.header__logo img {
+.logo {
   height: 50px;
-  margin-right: 1rem;
+  cursor: pointer;
 }
 
 .header__nav {

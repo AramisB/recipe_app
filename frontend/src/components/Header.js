@@ -9,12 +9,14 @@ function Header({ openSignInModal, openSignUpModal }) {
 
   return (
     <header className="header">
-      <div className="header__logo">
-        <img src={logo} alt="Logo" />
+      <div className="logo-container">
+        <Link to="/">
+          <img src={logo} alt="Logo" className="logo" />
+        </Link>
       </div>
 
       <nav className="header__nav">
-        <ul>
+        <ul>  
           <li>
             <Link to="/">Home</Link>
           </li>

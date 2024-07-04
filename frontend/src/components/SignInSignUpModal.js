@@ -1,37 +1,31 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../pages/AuthContext';
-import { useNavigate } from 'react-router-dom';
-import '../styles/modal.css';
+import '../styles/authModal.css';
 
 const SignInSignUpModal = ({ isOpen, onClose, initialFormType }) => {
   const [formType, setFormType] = useState(initialFormType);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { signup, login } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { signup, login, error } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      if (formType === 'signUp') {
-        await signup(username, email, password);
-      } else {
-        await login(email, password);
-      }
-      onClose();
-      navigate('/profile');
-    } catch (error) {
-      console.error(`${formType} error:`, error);
+    if (formType === 'signUp') {
+      await signup(username, email, password);
+    } else {
+      await login(email, password);
     }
+    onClose();
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <button className="close-button" onClick={onClose}>×</button>
+    <div className="auth-modal" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="close" onClick={onClose}>×</button>
+        {error && <p className="error-message">{error}</p>}
         <form onSubmit={handleSubmit}>
           {formType === 'signUp' && (
             <div className="form-group">
@@ -67,13 +61,10 @@ const SignInSignUpModal = ({ isOpen, onClose, initialFormType }) => {
           </button>
         </form>
         <p>
-          {formType === 'signUp'
-            ? 'Already have an account?'
-            : "Don't have an account?"}{' '}
+          {formType === 'signUp' ? 'Already have an account?' : "Don't have an account?"}
           <button
             type="button"
             onClick={() => setFormType(formType === 'signUp' ? 'signIn' : 'signUp')}
-            className="toggle-button"
           >
             {formType === 'signUp' ? 'Sign In' : 'Sign Up'}
           </button>

@@ -6,9 +6,9 @@ function Contact() {
         <Layout>
           <div className="contact-container">
             <h1>Contact Us</h1>
-            <p>Email: contact@example.com</p>
-            <p>Phone: (123) 456-7890</p>
-            <p>Address: 123 Main St, Anytown, USA</p>
+            <p>Email: chemuB@hotmail.com</p>
+            <p>Phone: +254703251256</p>
+            <p>Tom Mboya Rd, ALX Hub, Nairobi</p>
           </div>
         </Layout>
     );
