@@ -7,7 +7,7 @@ if (!uri) {
   throw new Error("MONGO_URI environment variable is not defined");
 }
 
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(uri); // No need for useNewUrlParser and useUnifiedTopology
 
 async function connectDB() {
   try {
