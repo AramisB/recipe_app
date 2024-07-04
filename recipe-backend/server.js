@@ -4,8 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const { ObjectId } = require('mongodb');
 const connectDB = require('./db');
-const authRoutes = require('./routes/auth');
-require('dotenv').config(); // Load environment variables from .env file
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
@@ -16,16 +15,13 @@ if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
-const port = process.env.PORT || 3000; // Set default port to 3000
+const port = process.env.PORT || 3001;
 
 // CORS configuration
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://seal-app-jx46s.ondigitalocean.app/',
   credentials: true
 }));
-
-// Mount authentication routes
-app.use('/api/auth', authRoutes);
 
 let db;
 
