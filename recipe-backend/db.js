@@ -12,7 +12,7 @@ let db;
 const connectDB = async () => {
   try {
     await client.connect();
-    db = client.db(process.env.DB_NAME);  // Make sure this matches your MongoDB database name
+    db = client.db(process.env.DB_NAME);
     console.log('Database connected');
     return db;
   } catch (error) {

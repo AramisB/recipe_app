@@ -15,11 +15,11 @@ if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
-const port = process.env.PORT || 3001;  // Ensure this matches the port your app is running on
+const port = process.env.PORT || 3001; 
 
 // CORS configuration
 app.use(cors({
-  origin: 'https://sea-turtle-app-ac82n.ondigitalocean.app',
+  origin: 'http://localhost:3001/api/recipes',
   credentials: true
 }));
 
