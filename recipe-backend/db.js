@@ -1,8 +1,11 @@
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
-const url = process.env.MONGODB_URI;  // Make sure this is correctly set in your .env file
-const client = new MongoClient(url);
+const url = process.env.MONGODB_URI;
+const client = new MongoClient(url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 let db;
 
