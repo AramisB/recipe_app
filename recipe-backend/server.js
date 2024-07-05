@@ -1,40 +1,32 @@
-const fs = require('fs');
-const path = require('path');
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { ObjectId } = require('mongodb');
 const connectDB = require('./db');
 require('dotenv').config();
 
 const app = express();
 app.use(express.json());
-
-// Ensure that the uploads directory exists
-const uploadsDir = path.join(__dirname, 'public', 'uploads');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
-
-const port = process.env.PORT || 3001; 
-
-// CORS configuration
 app.use(cors({
-  origin: 'http://localhost:3001/api/recipes',
+  origin: 'https://seal-app-jx46s.ondigitalocean.app',
   credentials: true
 }));
 
+const port = process.env.PORT || 3001; 
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+
 let db;
 
-// Connect to the database and store the instance
+// Connect to the database
 connectDB()
   .then(database => {
     db = database;
     console.log('Database connected');
 
-    // Fetch all recipes
     app.get('/api/recipes', async (req, res) => {
       try {
-        console.log('Fetching recipes...');
         const recipes = await db.collection('recipes').find().toArray();
         res.json(recipes);
       } catch (error) {
@@ -43,11 +35,9 @@ connectDB()
       }
     });
 
-    // Add a new recipe
     app.post('/api/recipes', async (req, res) => {
       try {
         const result = await db.collection('recipes').insertOne(req.body);
-        console.log('Inserted recipe:', result.insertedId);
         res.status(201).json({ _id: result.insertedId, ...req.body });
       } catch (error) {
         console.error('Failed to add recipe:', error);
@@ -55,7 +45,6 @@ connectDB()
       }
     });
 
-    // Update a recipe
     app.put('/api/recipes/:id', async (req, res) => {
       try {
         const { id } = req.params;
@@ -77,15 +66,12 @@ connectDB()
       }
     });
 
-    // Delete a recipe
     app.delete('/api/recipes/:id', async (req, res) => {
       try {
         const { id } = req.params;
         if (!ObjectId.isValid(id)) {
           return res.status(400).send({ error: 'Invalid ID format' });
         }
-
-        console.log(`Deleting recipe with ID: ${id}`);
 
         const result = await db.collection('recipes').deleteOne({ _id: new ObjectId(id) });
 
@@ -100,7 +86,11 @@ connectDB()
       }
     });
 
-    // Start the server after successful database connection
+    // Serve React app for all other routes
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+    });
+
     app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });

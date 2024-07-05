@@ -15,7 +15,12 @@ function App() {
   const [initialFormType, setInitialFormType] = useState('signIn');
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/recipes')
+    fetch('https://sea-turtle-app-ac82n.ondigitalocean.app/api/recipes', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        }
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log('Fetched data in App:', data);
