@@ -1,0 +1,44 @@
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-image: url('../images/about.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .about-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+    color: #141613;
+  }
+  
+  .about-container p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #060707;
+  }
+  
+  .about-container p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .about-container a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .about-container a:hover {
+    text-decoration: underline;
+  }
+  .about-container img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    position:relative;
+  }

@@ -1,0 +1,159 @@
+/* General styles for the Recipes page */
+.recipes-container {
+  padding-top: 100px; /* Adjust this value based on the height of your header */
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9; /* Light background color for contrast */
+  color: #333; /* Dark text color for readability */
+  background-image: url('../images/pattern-bkg.avif');
+  background-size: cover;
+}
+
+.recipes {
+  padding: 20px;
+  max-width: 800px; /* Limit the width to prevent it from covering the header */
+  margin: 0 auto; /* Center the recipes container horizontally */
+}
+
+/* General recipe item styles */
+.recipe {
+  position: relative;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(238, 238, 238);
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5), /* Dark gradient from top */
+    rgba(0, 0, 0, 0.5) /* Dark gradient to bottom */
+  ), url('../images/mandazi.jpg'); /* Default background image */
+  background-size: cover;
+  background-position: center;
+}
+
+.recipe::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Black with 40% opacity */
+  border-radius: 5px;
+  z-index: 0; /* Place it behind the text */
+}
+
+/* Background images */
+.recipe:nth-child(1) {
+  background-image: url('../images/mandazi.jpg');
+}
+
+.recipe:nth-child(2) {
+  background-image: url('../images/nyamachoma.jpg');
+}
+
+.recipe:nth-child(3) {
+  background-image: url('../images/samosa.jpg');
+}
+
+.recipe:nth-child(4) {
+  background-image: url('../images/chapati.webp');
+}
+
+.recipe:nth-child(5) {
+  background-image: url('../images/githeri.jpg');
+}
+
+.recipe:nth-child(6) {
+  background-image: url('../images/beef-stew.jpg');
+}
+
+.recipe:nth-child(7) {
+  background-image: url('../images/omena.jpg');
+}
+
+.recipe:nth-child(8) {
+  background-image: url('../images/kachumbari.jpg'); 
+}
+
+.recipe:nth-child(9) {
+  background-image: url('../images/matoke.jpg'); 
+}
+
+.recipe:nth-child(10) {
+  background-image: url('../images/bean-stew.jpg');
+}
+
+/* Add a generic background for additional recipes */
+.recipe:nth-child(n+11) {
+  background-image: url('../images/variety.jpg');
+}
+
+.recipe h2 {
+  margin-top: 0;
+  text-align: center; 
+  color: #fff; 
+  position: relative;
+  z-index: 1; 
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+}
+
+.recipe p, .recipe ul, .recipe ol {
+  position: relative;
+  z-index: 1; 
+  background: rgba(0, 0, 0, 0.5); 
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff; 
+  margin: 0; 
+}
+
+input[type="text"] {
+  padding: 10px 15px;
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  font-size: 16px;
+  width: 100%;
+  max-width: 400px; 
+  margin: 0 auto; 
+  display: block; 
+  background-color: #fff; 
+  position: fixed;
+  top: 100px; /* Distance from the top of the viewport */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center the input */
+  z-index: 1000;
+}
+
+input[type="text"]::placeholder {
+  color: #999; /* Placeholder text color */
+  font-style: italic; /* Placeholder text style */
+}
+
+input[type="text"]:focus {
+  border-color: #007bff; /* Change border color on focus */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on focus */
+  outline: none; /* Remove default focus outline */
+}
+
+input[type="text"]:focus::placeholder {
+  color: #666; /* Change placeholder color on focus */
+}
+
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .recipes-container {
+    padding-top: 60px; /* Adjust padding for smaller screens */
+  }
+
+  .recipe {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+}
