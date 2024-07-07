@@ -14,15 +14,12 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [initialFormType, setInitialFormType] = useState('signIn');
 
-  // Get the API URL from environment variables
-  const API_URL = process.env.REACT_APP_API_URL;
-
   useEffect(() => {
-    fetch(`${API_URL}/recipes`, {
+    fetch('https://king-prawn-app-gsvdf.ondigitalocean.app/api/recipes', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-      },
+        }
     })
       .then((response) => response.json())
       .then((data) => {
@@ -32,7 +29,7 @@ function App() {
       .catch((error) => {
         console.error('Error fetching recipes:', error);
       });
-  }, [API_URL]);
+  }, []);
 
   const openSignInModal = () => {
     setInitialFormType('signIn');
