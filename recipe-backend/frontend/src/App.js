@@ -15,7 +15,7 @@ function App() {
   const [initialFormType, setInitialFormType] = useState('signIn');
 
   useEffect(() => {
-    fetch('https://sea-turtle-app-ac82n.ondigitalocean.app', {
+    fetch('https://king-prawn-app-gsvdf.ondigitalocean.app/api/recipes', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ function App() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Fetched data in App:', data);
+        console.log('Fetched data in App:', data); 
         setBackendData(data);
       })
       .catch((error) => {
