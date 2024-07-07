@@ -15,7 +15,7 @@ function App() {
   const [initialFormType, setInitialFormType] = useState('signIn');
 
   useEffect(() => {
-    fetch('https://sea-turtle-app-ac82n.ondigitalocean.app/api/recipes', {
+    fetch('https://sea-turtle-app-ac82n.ondigitalocean.app', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
