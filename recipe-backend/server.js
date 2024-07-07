@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://seal-app-jx46s.ondigitalocean.app/recipes'],
+  origin: ['http://localhost:3000', 'https://seal-app-jx46s.ondigitalocean.app/api/recipes'],
   credentials: true
 }));
 
