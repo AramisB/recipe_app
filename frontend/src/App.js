@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import 'flowbite';
 import Header from './components/Header';
 import About from './pages/About';
 import Recipes from './pages/Recipes';
@@ -19,7 +20,7 @@ function App() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        }
+      },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -44,10 +45,7 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <Header 
-          openSignInModal={openSignInModal}
-          openSignUpModal={openSignUpModal}
-        />
+        <Header openSignInModal={openSignInModal} openSignUpModal={openSignUpModal} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
