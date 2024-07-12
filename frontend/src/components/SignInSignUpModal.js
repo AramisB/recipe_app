@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../pages/AuthContext';
+import './authModal.css';
 
 const SignInSignUpModal = ({ isOpen, onClose, initialFormType }) => {
   const { login } = useContext(AuthContext);
