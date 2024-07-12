@@ -16,7 +16,7 @@ function Header({ openSignInModal, openSignUpModal }) {
       </div>
 
       <nav className="header__nav">
-        <ul>  
+        <ul>
           <li>
             <Link to="/">Home</Link>
           </li>

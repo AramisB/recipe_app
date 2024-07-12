@@ -1,29 +1,32 @@
+// AuthContext.js
 import React, { createContext, useState } from 'react';
+import axios from 'axios';
 
-// Create the AuthContext
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
-// Define the AuthProvider component
-const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // Login function to set the user data
-  const login = (userData) => {
-    setUser(userData);
-    // You can also add more logic here such as saving the user data to localStorage or making an API call
+  const signIn = async (email, password) => {
+    const response = await axios.post('https://king-prawn-app-gsvdf.ondigitalocean.app/api/auth/signin', { email, password });
+    setUser(response.data.user);
+    // Set token in local storage or context if required
   };
 
-  // Logout function to clear the user data
+  const signUp = async (email, password) => {
+    const response = await axios.post('https://king-prawn-app-gsvdf.ondigitalocean.app/api/auth/signup', { email, password });
+    setUser(response.data.user);
+    // Set token in local storage or context if required
+  };
+
   const logout = () => {
     setUser(null);
-    // You can also add more logic here such as removing the user data from localStorage or making an API call
+    // Remove token from local storage or context if required
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, signIn, signUp, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
-
-export { AuthContext, AuthProvider };
