@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'flowbite';
 import Header from './components/Header';
@@ -20,7 +20,7 @@ function App() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-      },
+      }
     })
       .then((response) => response.json())
       .then((data) => {
@@ -32,20 +32,22 @@ function App() {
       });
   }, []);
 
-  const openSignInModal = () => {
-    setInitialFormType('signIn');
+  const openSignInModal = (formType) => {
+    setInitialFormType(formType);
     setIsModalOpen(true);
   };
 
-  const openSignUpModal = () => {
-    setInitialFormType('signUp');
-    setIsModalOpen(true);
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
     <Router>
       <AuthProvider>
-        <Header openSignInModal={openSignInModal} openSignUpModal={openSignUpModal} />
+        <Header 
+          openSignInModal={openSignInModal}
+          openSignUpModal={openSignInModal} // Pass openSignInModal for both buttons
+        />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -55,7 +57,7 @@ function App() {
         </Routes>
         <SignInSignUpModal 
           isOpen={isModalOpen} 
-          onClose={() => setIsModalOpen(false)} 
+          onClose={closeModal} 
           initialFormType={initialFormType} 
         />
       </AuthProvider>

@@ -41,9 +41,9 @@ function Header({ openSignInModal, openSignUpModal }) {
           </>
         ) : (
           <>
-            <button onClick={openSignInModal} className="auth-link">Sign In</button>
+            <button onClick={() => openSignInModal('signIn')} className="auth-link">Sign In</button>
             <span> | </span>
-            <button onClick={openSignUpModal} className="auth-link">Sign Up</button>
+            <button onClick={() => openSignInModal('signUp')} className="auth-link">Sign Up</button>
           </>
         )}
       </div>
